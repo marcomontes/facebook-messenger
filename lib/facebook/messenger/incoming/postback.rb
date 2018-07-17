@@ -11,6 +11,10 @@ module Facebook
         def payload
           @messaging['postback']['payload']
         end
+        
+        def title
+          @messaging['postback']['title']
+        end
 
         # Return hash containing the referral information of user.
         def referral
