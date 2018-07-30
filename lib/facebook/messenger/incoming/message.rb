@@ -138,6 +138,19 @@ module Facebook
 
           @messaging['message']['quick_reply']['payload']
         end
+        
+        def tags
+          messaging['message']['tags']
+        end
+        
+        def source
+          messaging['message']['tags']['source']
+        end
+        
+        def from_widget?
+          msg = messaging['message']
+          msg['tags'].present? && msg['tags']['source'].present? && msg['tags']['source'] == 'customer_chat_plugin'
+        end
 
         # @private
         private
